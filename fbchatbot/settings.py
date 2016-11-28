@@ -77,20 +77,20 @@ WSGI_APPLICATION = 'fbchatbot.wsgi.application'
 
 DATABASES = {
     'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
 #    'laverne': {
-	'NAME': 'laverne',
-	'ENGINE': 'django.db.backends.postgresql_psycopg2',
-	'USER': 'laverne',
-	'PASSWORD': 'password',
-	'HOST': 'localhost',
-	'PORT': '',
-	'OPTIONS': {
+#	'NAME': 'laverne',
+#	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#	'USER': 'laverne',
+#	'PASSWORD': 'password',
+#	'HOST': 'localhost',
+#	'PORT': '',
+#	'OPTIONS': {
 	     # 'isolation_level': psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
-	},
-    }
+#	},
+#    }
 }
 
 
@@ -131,3 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
